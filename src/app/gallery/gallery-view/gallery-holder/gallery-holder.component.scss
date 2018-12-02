@@ -1,0 +1,13 @@
+.gallery{
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &--title{
+            text-align: center;
+            background: #ccc;
+            padding: 10px;
+            text-transform: capitalize
+        }
+    }
+}

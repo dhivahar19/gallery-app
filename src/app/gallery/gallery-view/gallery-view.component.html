@@ -1,0 +1,23 @@
+<div class="gallery">
+    <h3 class="gallery__heading">
+        {{title}}
+        <label class="switch">
+                <input type="checkbox" [checked]="switchStatus" (change)="switchStatus=!switchStatus">
+                <span class="slider round"></span>
+        </label>
+    </h3>
+    <!-- Navigating images using prev and next buttons-->
+    <app-gallery-holder 
+        *ngIf= "switchStatus && images" 
+        [dataInput]= "images[value]">
+        <button (click)= "prevImgClick()" type= "button" class= "btn btn-dark prev" [disabled]="value==min">Prev</button>
+        <button (click)=" nextImgClick()" type= "button" class= "btn btn-dark next" [disabled]="value==(max-1)">Next</button>
+    </app-gallery-holder>
+
+    <!-- Navigating images using thumbnails-->
+    <app-gallery-holder 
+        *ngIf= "!switchStatus && images" [dataInput]= "images[value]">
+        <img *ngIf= "value!=min" (click)= "prevImgClick()" class= "prev" [src]= "images[value-1].thumbnailUrl"/>
+        <img *ngIf= "value!=(max-1)" (click)= "nextImgClick()" class= "next"  [src]= "images[value+1].thumbnailUrl"/>
+    </app-gallery-holder>
+</div>

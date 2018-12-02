@@ -1,0 +1,8 @@
+<div class="gallery__container">
+  <ng-content select=".prev"></ng-content>
+  <div *ngIf="dataInput">
+    <img [src]="dataInput.url" class="img-thumbnail"/>
+    <p class="gallery__container--title"> {{dataInput.title}}</p>
+  </div>
+  <ng-content select=".next"></ng-content>
+</div>
