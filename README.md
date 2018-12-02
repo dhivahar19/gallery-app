@@ -1,4 +1,6 @@
-# GalleryApp
+# GalleryApp with Redux
+![screen shot 2018-12-02 at 13 11 16](https://user-images.githubusercontent.com/26497101/49339913-ff804d00-f638-11e8-9622-d5844900c4bc.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
