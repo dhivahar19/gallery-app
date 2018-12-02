@@ -1,4 +1,5 @@
-<div class="gallery">
+<h3 class="loader text-danger" *ngIf="(imagesAreLoading$ | async)">Loading...</h3>
+<div class="gallery" *ngIf="!(imagesAreLoading$ | async)">
     <h3 class="gallery__heading">
         {{title}}
         <label class="switch">

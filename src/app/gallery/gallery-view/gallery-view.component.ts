@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as fromStore from './../store';
 import { Image } from './../models/image.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-view',
@@ -16,6 +17,7 @@ export class GalleryViewComponent implements OnInit {
   max: number;
   value: number;
   switchStatus: Boolean = true;
+  public imagesAreLoading$: Observable<boolean>;
 
   constructor(private store: Store<fromStore.GalleryState>) {
     this.title = 'Image Carousal';
@@ -25,6 +27,7 @@ export class GalleryViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.imagesAreLoading$ = this.store.pipe(select(fromStore.getPhotosLoading));
     this.store.select(fromStore.getAllPhotos).subscribe(state => {
       this.images = state.slice(0, 10);
       this.max = this.images.length;
